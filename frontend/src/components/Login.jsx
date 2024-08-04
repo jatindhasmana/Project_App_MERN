@@ -9,6 +9,7 @@ export default function Login(){
     const navigate = useNavigate()
     const location = useLocation()
     const {message} = location.state || {}
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const validate = () => {
         let tempErrors = {};
@@ -20,7 +21,7 @@ export default function Login(){
 
     const handleSubmit = async() => {
        if(validate()){
-        let result = await fetch("https://project-app-mern.onrender.com/login", {
+        let result = await fetch(`${apiUrl}/login`, {
             method : "Post",
             body : JSON.stringify({email:email, password:password}),
             headers : {

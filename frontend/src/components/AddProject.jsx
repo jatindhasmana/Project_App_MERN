@@ -7,6 +7,7 @@ export default function AddProject() {
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const validate = () => {
     let tempErrors = {};
@@ -19,7 +20,7 @@ export default function AddProject() {
   const handleSubmit = async () => {
     if (validate()) {
       let owner = JSON.parse(localStorage.getItem("user"))._id;
-      let result = await fetch("https://project-app-mern.onrender.com/add", {
+      let result = await fetch(`${apiUrl}/add`, {
         method: "Post",
         body: JSON.stringify({ name: title, description: descp, owner: owner }),
         headers: {

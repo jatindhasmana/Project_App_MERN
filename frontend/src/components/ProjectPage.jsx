@@ -8,15 +8,16 @@ export default function ProjectPage({ projectId, onUpload }) {
   const [isSuccess, setSuccess] = useState('');
 
   const path = JSON.parse(localStorage.getItem("user"))._id;
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const getProject = async () => {
-    let result = await fetch(`https://project-app-mern.onrender.com/view/${projectId}`);
+    let result = await fetch(`${apiUrl}/${projectId}`);
     result = await result.json();
     setProject({ ...result });
   };
 
   const getFiles = async () => {
-    let result = await fetch(`https://project-app-mern.onrender.com/upload/${projectId}`);
+    let result = await fetch(`${apiUrl}/upload/${projectId}`);
     result = await result.json();
     setUploads(result);
   };

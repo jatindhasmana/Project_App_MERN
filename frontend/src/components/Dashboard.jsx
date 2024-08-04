@@ -9,14 +9,14 @@ export default function Dashboard() {
     const [projectId, setProjectId] = useState("");
     const location = useLocation()
     const {message} = location.state || {};
-    // const {message_reg} = location.state || {};
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         getProducts();
     }, []);
 
     const getProducts = async () => {
-        let result = await fetch("https://project-app-mern.onrender.com/view");
+        let result = await fetch(`${apiUrl}/view`);
         result = await result.json();
         setProjects(result);
     };
@@ -30,7 +30,7 @@ export default function Dashboard() {
         formData.append('file', file);
 
         try {
-            const response = await fetch(`https://project-app-mern.onrender.com/upload/${projectId}`, {
+            const response = await fetch(`${apiUrl}/upload/${projectId}`, {
                 method: 'POST',
                 body: formData,
             });

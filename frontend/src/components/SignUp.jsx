@@ -8,6 +8,7 @@ export default function SignUp() {
     const [errors, setErrors] = useState({})
 
     const navigate = useNavigate()
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const validate = () => {
         let tempErrors = {};
@@ -20,7 +21,7 @@ export default function SignUp() {
 
     const handleSubmit = async() => {
         if(validate()){
-            let result = await fetch("https://project-app-mern.onrender.com/register" , {
+            let result = await fetch(`${apiUrl}/register` , {
                 method: "Post",
                 body: JSON.stringify({name:name, email:email, password:password}),
                 headers: {
