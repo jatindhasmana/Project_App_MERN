@@ -17,7 +17,10 @@ async function main() {
   await mongoose.connect(dbUrl);
 }
 
-app.use(cors());
+app.use(cors({
+  origin: "https://project-app-mern.onrender.com",
+  optionsSuccessStatus: 200
+}));
 app.use(express.json());
 
 app.use(projectRoutes);
