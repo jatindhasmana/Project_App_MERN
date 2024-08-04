@@ -9,11 +9,12 @@ const userRoutes = require("./routes/userRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 
 const app = express();
+const dbUrl = process.env.ATLASDB_URL
 
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/ProjectPage');
+  await mongoose.connect(dbUrl);
 }
 
 app.use(cors());

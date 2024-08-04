@@ -1,7 +1,7 @@
 export default function ProjectCard({ projects }) {
   return (
     <>
-    <h2 className="text-2xl font-bold">Projects</h2>
+    {projects.length>0 ? <h2 className="text-2xl font-bold">Projects</h2> : <h2 className="text-5xl font-bold">No Projects <small className="text-xl font-semibold text-red-600 block p-8">create new project</small></h2>}
     <div className="flex flex-wrap justify-start items-center overflow-auto p-4">
       {projects.map((project) => (
         <div
