@@ -20,7 +20,7 @@ export default function Login(){
 
     const handleSubmit = async() => {
        if(validate()){
-        let result = await fetch("http://localhost:8000/login", {
+        let result = await fetch("https://project-app-mern.onrender.com/login", {
             method : "Post",
             body : JSON.stringify({email:email, password:password}),
             headers : {

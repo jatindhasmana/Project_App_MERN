@@ -10,13 +10,13 @@ export default function ProjectPage({ projectId, onUpload }) {
   const path = JSON.parse(localStorage.getItem("user"))._id;
 
   const getProject = async () => {
-    let result = await fetch(`http://localhost:8000/view/${projectId}`);
+    let result = await fetch(`https://project-app-mern.onrender.com/view/${projectId}`);
     result = await result.json();
     setProject({ ...result });
   };
 
   const getFiles = async () => {
-    let result = await fetch(`http://localhost:8000/upload/${projectId}`);
+    let result = await fetch(`https://project-app-mern.onrender.com/upload/${projectId}`);
     result = await result.json();
     setUploads(result);
   };

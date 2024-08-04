@@ -20,7 +20,7 @@ export default function SignUp() {
 
     const handleSubmit = async() => {
         if(validate()){
-            let result = await fetch("http://localhost:8000/register" , {
+            let result = await fetch("https://project-app-mern.onrender.com/register" , {
                 method: "Post",
                 body: JSON.stringify({name:name, email:email, password:password}),
                 headers: {

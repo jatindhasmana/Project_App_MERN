@@ -16,7 +16,7 @@ export default function Dashboard() {
     }, []);
 
     const getProducts = async () => {
-        let result = await fetch("http://localhost:8000/view");
+        let result = await fetch("https://project-app-mern.onrender.com/view");
         result = await result.json();
         setProjects(result);
     };
@@ -30,7 +30,7 @@ export default function Dashboard() {
         formData.append('file', file);
 
         try {
-            const response = await fetch(`http://localhost:8000/upload/${projectId}`, {
+            const response = await fetch(`https://project-app-mern.onrender.com/upload/${projectId}`, {
                 method: 'POST',
                 body: formData,
             });

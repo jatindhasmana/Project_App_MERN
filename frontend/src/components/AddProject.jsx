@@ -19,7 +19,7 @@ export default function AddProject() {
   const handleSubmit = async () => {
     if (validate()) {
       let owner = JSON.parse(localStorage.getItem("user"))._id;
-      let result = await fetch("http://localhost:8000/add", {
+      let result = await fetch("https://project-app-mern.onrender.com/add", {
         method: "Post",
         body: JSON.stringify({ name: title, description: descp, owner: owner }),
         headers: {
