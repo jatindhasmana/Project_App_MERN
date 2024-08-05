@@ -16,7 +16,7 @@ export default function ProjectCard({ projects }) {
       <input
         type="text"
         className="p-2 border border-gray-300 rounded-lg mb-4 w-full max-w-md"
-        placeholder="Search Product"
+        placeholder="Search Project with Title"
         onChange={searchHandle}
       />
       {projects.length > 0 ? (
