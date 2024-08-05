@@ -8,6 +8,7 @@ A Full stack web application which enables to user to create Projects and let ot
 ## Features
 
 - Authentication & Authorization
+- CRUD Operations
 - Responsive UI
 - Uploading Files
 - Creating Projects
@@ -21,6 +22,27 @@ A Full stack web application which enables to user to create Projects and let ot
 **Server:** Node, Express
 
 **Database:** MongoDB
+
+
+## Setup Environment Variables:
+
+- Create a `.env` file in both the `backend` directory.
+- Copy the contents of the `.env.example` (given below) file to your `.env` file and fill in your specific values that you will get after creating an account on MongoDB Atlas.
+ 
+   ```bash
+   CLOUD_NAME=
+   CLOUD_API_KEY=
+   CLOUD_API_SECRET=
+   ATLASDB_URL=
+
+- For example:
+  ```bash
+   CLOUD_NAME=my-cloud-name
+   CLOUD_API_KEY=my-api-key
+   CLOUD_API_SECRET=my-api-secret
+   ATLASDB_URL=my-atlasdb-url
+
+
 
 
 ## Installation
@@ -39,11 +61,13 @@ To get this project up and running locally, follow these steps:
 
     cd ../frontend
     npm install
-3.**Run The Application (Frontend+Backend Simultaneously):**
-    ```bash
-    npm run dev
-    cd ../backend
-    node server.js    
+
+3.**Run The Application (Frontend+Backend Simultaneously):** 
+   ```bash
+   npm run dev
+   cd ../backend
+   node server.js
+   ```    
 
 ## Demo
 
