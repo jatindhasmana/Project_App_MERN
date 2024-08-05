@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 export default function Login(){
     const [password , setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const [inCorrect, setCorrect] =useState("")
     const [errors, setErrors] = useState({})
 
     const navigate = useNavigate()
@@ -30,7 +31,7 @@ export default function Login(){
         result = await result.json()
         console.log(result)
         if (!result.name) {
-            alert("Please fill in correct details");
+            setCorrect("Please input Valid details")
         } else {
             localStorage.setItem("user", JSON.stringify(result));
             navigate("/", {state: {message: 'You have successfully Logged In. Welcome Back :)'}});
@@ -78,6 +79,7 @@ export default function Login(){
             >
                 Login
             </button>
+            {inCorrect && (<p className="text-red-500 mt-2 text-semibold">{inCorrect}</p>)}
         </div>
     </>
 }
