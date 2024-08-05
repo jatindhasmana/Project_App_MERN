@@ -27,7 +27,7 @@ A Full stack web application which enables to user to create Projects and let ot
 ## Setup Environment Variables:
 
 - Create a `.env` file in both the `backend` directory.
-- Copy the contents of the `.env.example` (given below) file to your `.env` file and fill in your specific values that you will get after creating an account on MongoDB Atlas.
+- Copy the contents of the `.env.example` (given below) file to your `.env` file and fill in your specific values that you will get after creating an account on Cloudinary.
  
    ```bash
    CLOUD_NAME=
@@ -40,7 +40,7 @@ A Full stack web application which enables to user to create Projects and let ot
    CLOUD_NAME=my-cloud-name
    CLOUD_API_KEY=my-api-key
    CLOUD_API_SECRET=my-api-secret
-   ATLASDB_URL=my-atlasdb-url
+   ATLASDB_URL=my-localSystem_DB-url
 
 
 
