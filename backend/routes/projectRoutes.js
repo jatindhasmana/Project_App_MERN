@@ -33,4 +33,13 @@ router.get('/view/:id', async (req, res) => {
   }
 });
 
+router.get("/search/:key", async(req,res) => {
+    let result = await Project.find({
+      "$or": [
+        {name:{$regex:req.params.key}},
+      ]
+    })
+    res.send(result)
+  })
+
 module.exports = router;
