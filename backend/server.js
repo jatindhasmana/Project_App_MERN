@@ -18,7 +18,7 @@ async function main() {
 }
 
 app.use(cors({
-  origin: "https://project-app-mern.onrender.com/",
+  origin:'https://project-mern-0qvt.onrender.com',
   optionsSuccessStatus: 200
 }));
 app.use(express.json());
