@@ -62,7 +62,7 @@ export default function Dashboard() {
                         onUpload={handleUpload}
                     />
                 ) : (
-                    <ProjectCard projects={projects} />
+                    <ProjectCard/>
                 )}
             </div>
         </div>

@@ -19,7 +19,7 @@ export default function SignUp() {
 
     const handleSubmit = async() => {
         if(validate()){
-            let result = await fetch(`https://project-app-mern.onrender.com/register` , {
+            let result = await fetch('https://project-app-mern.onrender.com/register', {
                 method: "Post",
                 body: JSON.stringify({name:name, email:email, password:password}),
                 headers: {
@@ -28,7 +28,7 @@ export default function SignUp() {
             })
     
             result = await result.json()
-            console.warn(result)
+            console.warn("Hello")
             localStorage.setItem('user', JSON.stringify(result))
             navigate("/", {state : {message : "You have registered successfully. Have fun:)"}})
         }

@@ -29,11 +29,20 @@ router.post('/upload/:id', upload.single('file'), async (req, res) => {
 router.get('/upload/:id', async (req, res) => {
   try {
     let getId = req.params.id;
-    let result = await File.find({ project: getId });
+    let result = await File.find({ project: getId }).populate('uploaded_by', 'name');
     res.send(result);
   } catch (e) {
     res.status(404).send(e);
   }
 });
+
+router.delete('/file/:id', async(req,res) => {
+  try{
+    await File.deleteOne({_id: req.params.id})
+    res.status(200).send({message: "File has been deleted successfully"})
+  }catch(e){
+    res.status(404).send(e)
+  }
+})
 
 module.exports = router;

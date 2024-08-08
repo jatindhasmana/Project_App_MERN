@@ -33,6 +33,7 @@ export default function Nav() {
                     <div className="text-sm lg:flex-grow">
                         {auth && (
                             <>
+                                <Link to="/card" className="block mt-4 lg:inline-block lg:mt-0 lg:text-lg text-white hover:text-blue-200 mr-4 transition duration-300">Home</Link>
                                 <Link to="/add" className="block mt-4 lg:inline-block lg:mt-0 lg:text-lg text-white hover:text-blue-200 mr-4 transition duration-300">Create Project</Link>
                                 <Link to="/profile" className="block mt-4 lg:inline-block lg:mt-0 lg:text-lg text-white hover:text-blue-200 mr-4 transition duration-300">Profile</Link>
                             </>

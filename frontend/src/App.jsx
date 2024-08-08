@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 import Dashboard from './components/Dashboard'
 import PrivateComponent from './components/PrivateComponent'
 import Profile from './components/Profile'
+import ProjectCard from './components/ProjectCard'
+import UpdateProject from './components/UpdateProject'
 function App() {
 
   return (
@@ -19,8 +21,10 @@ function App() {
       <Routes>
         <Route element={<PrivateComponent/>}>
         <Route path="/" element={<Dashboard/>}></Route>
+        <Route path="/card" element={<Dashboard><ProjectCard/></Dashboard>}></Route>
         <Route path="/add" element={<AddProject/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
+        <Route path='/update/:id' element={<UpdateProject/>}></Route>
         </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/register" element={<SignUp/>}></Route>

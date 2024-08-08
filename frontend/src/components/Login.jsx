@@ -38,6 +38,7 @@ export default function Login(){
         }
        }
     }
+    
     return <>
     {message && (<p className="text-green-600 font-semibold">{message}</p>)}
 <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md my-20">

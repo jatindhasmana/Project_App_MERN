@@ -12,7 +12,7 @@ export default function ProjectPage({ projectId, onUpload }) {
   const getProject = async () => {
     let result = await fetch(`https://project-app-mern.onrender.com/view/${projectId}`);
     result = await result.json();
-    setProject({ ...result });
+    setProject(result);
   };
 
   const getFiles = async () => {
@@ -32,9 +32,9 @@ export default function ProjectPage({ projectId, onUpload }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (file) {
-      await onUpload(file).then(setSuccess("File has been uploaded successfully"));
-      setFile(null); // Clear the file input after upload
-      getFiles(); // Refresh the uploaded files list
+      await onUpload(file).then(() => setSuccess("File has been uploaded successfully"));
+      setFile(null);
+      getFiles(); 
     }
   };
 
@@ -43,13 +43,19 @@ export default function ProjectPage({ projectId, onUpload }) {
     getFiles();
   }, [projectId]);
 
+  const ownerName = project.owner?.name || 'Unknown';
+
   return (
     <div className="p-4 bg-blue-50 text-gray-800 overflow-auto">
       <h2 className="text-3xl font-bold mb-6 text-center">{project.name}</h2>
       <p className="border-2 p-4 bg-blue-200 text-blue-900 text-lg rounded-lg mb-6">
         {project.description}
       </p>
-      {path === project.owner && <small className="block mb-4 text-green-700">Owned by you</small>}
+      {path === project.owner?._id ? (
+        <small className="block mb-4 text-green-700">Owned by you</small>
+      ) : (
+        <p>Owned by {ownerName}</p>
+      )}
 
       <div
         {...getRootProps()}
@@ -82,6 +88,7 @@ export default function ProjectPage({ projectId, onUpload }) {
       <div className="space-y-2">
         {uploads.map((upload, index) => (
           <div key={index} className="p-2 bg-green-100 text-blue-500 rounded-lg shadow-sm truncate">
+            <span className="px-4 text-red-500">from: _{upload.uploaded_by.name}</span>
             <a href={upload.filePath} target="_blank" rel="noopener noreferrer">
               {upload.filePath}
             </a>

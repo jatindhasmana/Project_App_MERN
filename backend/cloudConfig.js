@@ -10,8 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary : cloudinary,
     params: {
-        folder: 'projectapp',
-        allowedFormats: ['pdf', "docx" , 'txt', 'jpeg', 'jpg', 'png']
+        folder: 'projectapp'
     },
 })
 
