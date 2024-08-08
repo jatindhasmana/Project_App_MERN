@@ -5,11 +5,11 @@ export default function Sidebar({  onSelectProject }) {
   const [projects, setProjects] = useState([])
 
   useEffect(()=>{
-    getProducts()
+    getProjects()
   },[])
 
-  const getProducts = async () => {
-    let result = await fetch(`http://localhost:8000/view`);
+  const getProjects = async () => {
+    let result = await fetch(`https://project-app-mern.onrender.com/view`);
     result = await result.json();
     setProjects(result);
 };
@@ -29,7 +29,7 @@ export default function Sidebar({  onSelectProject }) {
         setProjects(result)
       }
     }else{
-      getProducts()
+      getProjects()
     }
   };
 
